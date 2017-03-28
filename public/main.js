@@ -13,9 +13,21 @@ $(document).ready(function() {
 function searchOMDB(term) {
 	$.get(apiUrl + 's=' + term)
 	.then(function(data) {
-		console.log(data)
+		var movies = data.Search
+
+		movies.forEach(function(movie) {
+			var $li = generateLi(movie)
+
+			$('#movie-list > ul').append($li)
+		})
 	})
 	.catch(function(err) {
 		console.error(err)
 	})
+}
+
+function generateLi(movie) {
+	var $el = $('<li>')
+	$el.text(movie.Title)
+	return $el
 }
