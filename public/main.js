@@ -1,4 +1,4 @@
-var apiUrl = 'http://www.omdbapi.com/?'
+var apiUrl = 'https://www.omdbapi.com/?'
 
 $(document).ready(function() {
 	$('form').submit(function(event) {
